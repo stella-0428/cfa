@@ -88,35 +88,20 @@ class SideBar extends Component {
     render() {
         const { classes } = this.props;
         return (
-            // 
-            // <Route path="/bcg/EvaluatorSelection" component={EvaluatorSelection} />
-            // <Route path="/bcg/SubmittedFeedbacks" component={SubmittedFeedbacks} />
-            // 
+           
             <List component="nav" aria-labelledby="nested-list-subheader" className={classes.sideBarListRoot}>
-                <Link underline='none' component={RouterLink} to='/bcg/EvaluatorSelection'>
+                <Link underline='none' component={RouterLink} to='/bcg/EvaluateSales'>
                     <ListItem button className={this.pageStore.pageIndex == 0 ? `${classes.activeSideBarItem} ${classes.sideBarListItem}` : `${classes.sideBarListItem}`}>
                         <ListItemIcon><SpeakerNotesIcon /></ListItemIcon>
-                        <ListItemText className={classes.sideBarListText} primary="Evaluator Selection" />
+                        <ListItemText className={classes.sideBarListText} primary="Evaluate Sales" />
                     </ListItem>
                 </Link>
-                <Link underline='none' component={RouterLink} to='/bcg/SubmittedFeedbacks'>
+                <Link underline='none' component={RouterLink} to='/bcg/SubmittedSales'>
                     <ListItem button className={this.pageStore.pageIndex == 1 ? `${classes.activeSideBarItem} ${classes.sideBarListItem}` : `${classes.sideBarListItem}`}>
                         <ListItemIcon><BusinessCenterIcon /></ListItemIcon>
-                        <ListItemText className={classes.sideBarListText} primary="Submitted Feedbacks" />
+                        <ListItemText className={classes.sideBarListText} primary="Submitted Sales" />
                     </ListItem>
                 </Link>
-                {/* <Link underline='none' component={RouterLink} to='/bcg/CorrectSKU'>
-                    <ListItem button className={this.pageStore.pageIndex == 3 ? `${classes.activeSideBarItem} ${classes.sideBarListItem}` : `${classes.sideBarListItem}`}>
-                        <ListItemIcon><BorderColorIcon /></ListItemIcon>
-                        <ListItemText className={classes.sideBarListText} primary="Correct SKU" />
-                    </ListItem>
-                </Link>
-                <Link underline='none' component={RouterLink} to='/bcg/ReadOut'>
-                    <ListItem button className={this.pageStore.pageIndex == 4 ? `${classes.activeSideBarItem} ${classes.sideBarListItem}` : `${classes.sideBarListItem}`}>
-                        <ListItemIcon><AspectRatioIcon /></ListItemIcon>
-                        <ListItemText className={classes.sideBarListText} primary="Readout" />
-                    </ListItem>
-                </Link> */}
             </List>
         );
     }

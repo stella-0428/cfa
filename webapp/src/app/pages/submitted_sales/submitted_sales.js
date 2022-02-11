@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './evaluator_election.scss';
+import './submitted_sales.scss';
 import { observer, inject } from 'mobx-react';
 import { networkService} from '../../_shared/services';
 import { appConstants } from '../../_shared/config/app.config';
@@ -8,13 +8,13 @@ import { toast } from 'react-toastify';
 
 @inject("userStore", "pageStore")
 @observer
-class EvaluatorSelection extends Component {
+class SubmittedSales extends Component {
 
   constructor(props) {
     super(props);
     this.userStore = props.userStore;
     this.pageStore = this.props.pageStore;
-    this.pageStore.setPageIndex(0);
+    this.pageStore.setPageIndex(1);
     this.state = {
       loadApp: false
     };
@@ -28,7 +28,7 @@ class EvaluatorSelection extends Component {
     const url = `${appConstants.urls.baseUrl}/api/users/`;
     await networkService.get(url).then((response) => {
       console.log(response);
-      toast.success("Welcome to Evaluator Selection screen.");
+      toast.success("Welcome to Submitted Sales screen.");
     })
       .catch((error) => {
         console.log(error);
@@ -39,10 +39,10 @@ class EvaluatorSelection extends Component {
   render() {
     console.log(this.userStore.email);
     return (
-      <h2>Welcome to Evaluator Selection screen.</h2>
+      <h2>Welcome to Submitted Sales screen.</h2>
     );
   }
 }
 
 
-export default EvaluatorSelection;
+export default SubmittedSales;

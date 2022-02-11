@@ -12,4 +12,4 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 def index(request):
-    return HttpResponse("You're at the Feedback API index.")
+    return HttpResponse("You're at the Sales API index.")

@@ -1,2 +1,2 @@
-# Feedback Tool
-GAMMA internal tool created for HR, CD Advisors &amp; CD Teams for the CDC reviews.
+# BCG Sales Tool
+BCG Sales tool created for Showcasing sales report

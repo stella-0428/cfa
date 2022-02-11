@@ -79,11 +79,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
 # Put the database credentials here
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'feedback-sanitised',
+        'NAME': 'sales-sanitised',
         'USER': 'postgres',
         'HOST': 'localhost',
         'PORT': 5432,

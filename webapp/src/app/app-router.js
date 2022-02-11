@@ -19,8 +19,8 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 
-import EvaluatorSelection from './pages/evaluator_selection/evaluator_selection';
-import SubmittedFeedbacks from './pages/submitted_feedbacks/submitted_feedbacks';
+import EvaluateSales from './pages/evaluate_sales/evaluate_sales';
+import SubmittedSales from './pages/submitted_sales/submitted_sales';
 
 
 const drawerWidth = 240;
@@ -129,9 +129,9 @@ class AppRouter extends Component {
         return (
             <div className="main">
                 <Switch>
-                    <Route path="/" exact component={EvaluatorSelection} />
-                    <Route path="/bcg/EvaluatorSelection" component={EvaluatorSelection} />
-                    <Route path="/bcg/SubmittedFeedbacks" component={SubmittedFeedbacks} />
+                    <Route path="/" exact component={EvaluateSales} />
+                    <Route path="/bcg/EvaluateSales" component={EvaluateSales} />
+                    <Route path="/bcg/SubmittedSales" component={SubmittedSales} />
                 </Switch>
             </div>
         )
@@ -167,7 +167,7 @@ class AppRouter extends Component {
                             >
                                 <MenuIcon />
                             </IconButton>
-                            <Typography variant="h6" className={classes.appLogoText} noWrap>BCG Feedback Tool</Typography>
+                            <Typography variant="h6" className={classes.appLogoText} noWrap>BCG Sales Tool</Typography>
                         </Toolbar>
                     </AppBar>
                     <Drawer
