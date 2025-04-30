@@ -1,7 +1,7 @@
 # BCG Sales Tool
 BCG Sales tool created for Showcasing sales report
 
-# Pre Requisite
+### Pre Requisite
 Python 2 or 3 needs to be installed For running this app in local set path for python: 
 ```
 export PYTHON=/usr/local/bin/python2
@@ -20,7 +20,7 @@ npm start
 
 ## For installing Backend
 
-# Prerequisite
+### Prerequisite
 if using venv install the following
 ```
 brew install pyenv
