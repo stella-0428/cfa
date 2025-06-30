@@ -19,12 +19,10 @@ jobs:
         pip install -r backend/requirements.txt
         pip install pylint pytest
     - name: lint_test
-      run: |
-        pylint /backend/backend/
+      run: pylint backend/backend/ --fail-under=8
     - name: docker_build
       run: |
         docker build -f backend/admin_service.dockerfile -t cfa-image:v1 backend/
-# this means that we are saving our file in the workflow itself so that we can download or store it as tar rather than pushing it to the registry
         docker save -o cfa-image.tar cfa-image:v1
     - name: artifact_upload
       uses: actions/upload-artifact@v4.6.2
@@ -33,6 +31,7 @@ jobs:
         path: cfa-image.tar
         
         
+        
   
   
 
@@ -41,3 +40,4 @@ jobs:
       
       
       
+Update cfa.yml · stella-0428/cfa@af0c0ef
