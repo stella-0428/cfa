@@ -1,0 +1,42 @@
+# This is a basic workflow to help you get started with Actions
+#this is for backend #django
+name: cfa
+on:
+  push:
+    branches: [ "nandigama_sharmila_githubactions_basic" ]
+jobs:
+  code_checkout:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: code-checkout
+      uses: actions/checkout@v1
+    - name: Setup Python
+      uses: actions/setup-python@v5.6.0
+      with:
+         python-version: 3.11
+    - name:  installing_requirements
+      run: |
+        pip install -r backend/requirements.txt
+        pip install pylint pytest
+    - name: lint_test
+      run: pylint /backend/backend/
+    - name: docker_build
+      run: |
+        docker build -f backend/admin_service.dockerfile -t cfa-image:v1 backend/
+# this means that we are saving our file in the workflow itself so that we can download or store it as tar rather than pushing it to the registry
+        docker save -o cfa-image.tar cfa-image:v1
+    - name: artifact_upload
+      uses: actions/upload-artifact@v4.6.2
+      with:
+        name: cfa-artifact
+        path: cfa-image.tar
+        
+        
+  
+  
+
+  
+
+      
+      
+      
