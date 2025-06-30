@@ -29,15 +29,3 @@ jobs:
       with:
         name: cfa-artifact
         path: cfa-image.tar
-        
-        
-        
-  
-  
-
-  
-
-      
-      
-      
-Update cfa.yml · stella-0428/cfa@af0c0ef
