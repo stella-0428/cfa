@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: nm
+  labels:
+    app: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend 
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      volumes:
+      - name: persistent-volume-frontend
+        persistentVolumeClaim:
+          claimName: frontend-pvc
+      containers:
+      - name: frontend
+        image: frontend-image:v3
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80           
+        env:
+        - name: BACKEND_URL
+          value: http://backend-svc.nm.svc.cluster.local
+        volumeMounts:
+        - name: persistent-volume-frontend
+          mountPath: /etc/config
+        readinessProbe:
+          httpGet:
+            path: /index.html
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /index.html
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - frontend
+            topologyKey: "kubernetes.io/hostname"              
+
+
+---
+#svc --
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-svc
+  namespace: nm
+spec:
+  selector:
+    app: frontend
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 80
+ 
+
+
+
+
