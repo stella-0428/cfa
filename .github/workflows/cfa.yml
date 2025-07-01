@@ -14,7 +14,7 @@ env:
 jobs:
   code_checkout_build:
     runs-on: ubuntu-latest
-    env:
+    environment:
       name: ${{ 
         github.ref == 'refs/heads/nandigama_sharmila_githubactions_basic' && 'dev' ||
         github.ref == 'refs/heads/prod' && 'production' ||
@@ -40,7 +40,7 @@ jobs:
       uses: actions/upload-artifact@v4.6.2
       with:
         name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG}}
-        path: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG}}.tar
+        path: ${{ env.IMAGE_NAME }}.tar
         
         
         
