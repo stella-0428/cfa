@@ -16,9 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       name: ${{ 
-        github.ref == 'refs/head/nandigama_sharmila_githubactions_basic' && 'dev' ||
-        github.ref == 'refs/head/prod' && 'production' ||
-        github.ref == 'refs/head/uat' && 'staging' }}
+        github.ref == 'refs/heads/nandigama_sharmila_githubactions_basic' && 'dev' ||
+        github.ref == 'refs/heads/prod' && 'production' ||
+        github.ref == 'refs/heads/uat' && 'staging' }}
     steps: 
     - name: code-checkout
       uses: actions/checkout@v1
